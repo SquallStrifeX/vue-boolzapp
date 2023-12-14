@@ -5,6 +5,7 @@ createApp({
       return {
         currentName: '',
         currentPg: 0,
+        newMessage: '',
         contacts: [
           {
             name: 'Michele',
@@ -176,8 +177,23 @@ createApp({
       },
       showPg(index){
         this.currentPg = index;
-
     },
-  }
-    
+
+      pushArray(){
+        this.contacts[this.currentPg].messages.push({
+          date: new Date().toLocaleString(),
+          message: this.newMessage,
+          status: 'sent',
+        })
+        setInterval(() => {
+          this.contacts[this.currentPg].messages.push({
+            date: new Date().toLocaleString(),
+            message: 'Ok.',
+            status: 'received',
+          })
+        }, 1000);
+        
+
+  },
+}   
 }).mount('#app')

@@ -81,18 +81,20 @@
                     </div>
                 </div>
                <div class="col-12 height_50 bg-chat">
-                <div class="d-flex  " :class="{ 'justify-content-end': message.status === 'received'} " v-for="message in contacts[currentPg].messages" :key="message.date">
-                  <span class="p-3 m-4 pe-5 bordo position-relative" :class="{ 'bg-success': message.status === 'received', 'bg-white' : message.status == 'sent' } ">{{ message.message }}<span class="position-x">12:00</span>
+                <div class="d-flex  " :class="{ 'justify-content-end': message.status === 'sent'} " v-for="message in contacts[currentPg].messages" :key="message.date">
+                  <span class="p-3 m-4 pe-5 bordo position-relative" :class="{ 'bg-success': message.status === 'sent', 'bg-white' : message.status == 'received' } ">{{ message.message }}<span class="position-x">12:00</span>
                   </span></div>
                   </div>
+                  <div class="col-12 bg_header d-flex">
+                    {{ newMessage}}
+                    <i class="fa-regular fa-face-smile fa-xl p-4"></i>
+                    <input type="text" class="form-control m-2" placeholder="Username" aria-label="Username" v-model="newMessage" aria-describedby="addon-wrapping"  @keyup.enter="pushArray()">
+                    <i class="fa-solid fa-microphone fa-xl p-4"></i>
+                   </div>
                 </div>
               
                </div>
-               <div class="col-12 bg_header d-flex">
-                <i class="fa-regular fa-face-smile fa-xl p-4"></i>
-                <input type="text" class="form-control m-2" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-                <i class="fa-solid fa-microphone fa-xl p-4"></i>
-               </div>
+            
                 </div>
             </div>
           
