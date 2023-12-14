@@ -49,7 +49,7 @@
                             </form>
                         </nav>
                     </div>
-                    <div class="col-12 bg-white" v-for="(contact, index) in contacts" :key="index">
+                    <div class="col-12 bg-white pointer" v-for="(contact, index) in contacts" :key="index " @click= "showPg(index)">
                         <div class=" d-flex flex-wrap">
                             <div class="d-flex col-12 justify-content-between align-self-center ms-4 my-2">
                                 <div class="d-flex">
@@ -70,7 +70,7 @@
                     <div class="d-flex m-2">
                       <img class="img_avatar border rounded-circle"
                           :src="contacts[2].avatar" alt="">
-                      <div class="align-self-start ms-3">{{ contacts[2].name }}<span
+                      <div class="align-self-start ms-3">{{ currentName }}<span
                               class="text_color"><br> Ultimo messaggio inviato</span>
                             </div>
                   </div>
@@ -80,8 +80,13 @@
                         <i class="fas fa-ellipsis-vertical p-2 trasparency"></i>
                     </div>
                 </div>
-               <div class="col-12">
-                <div class="height_50 bg-warning"></div>
+               <div class="col-12 height_50 bg-chat">
+                <div class="d-flex  " :class="{ 'justify-content-end': message.status === 'received'} " v-for="message in contacts[currentPg].messages" :key="message.date">
+                  <span class="p-3 m-4 pe-5 bordo position-relative" :class="{ 'bg-success': message.status === 'received', 'bg-white' : message.status == 'sent' } ">{{ message.message }}<span class="position-x">12:00</span>
+                  </span></div>
+                  </div>
+                </div>
+              
                </div>
                <div class="col-12 bg_header d-flex">
                 <i class="fa-regular fa-face-smile fa-xl p-4"></i>

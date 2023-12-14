@@ -3,6 +3,8 @@ const { createApp } = Vue;
 createApp({
     data() {
       return {
+        currentName: '',
+        currentPg: 0,
         contacts: [
           {
             name: 'Michele',
@@ -168,4 +170,14 @@ createApp({
         ]
       }
     },
+    methods: {
+      showChat(index) {
+        this.currentName = this.contacts[index].name;
+      },
+      showPg(index){
+        this.currentPg = index;
+
+    },
+  }
+    
 }).mount('#app')

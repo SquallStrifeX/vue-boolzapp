@@ -26,6 +26,25 @@
     font-size: 12px;
 }
 
+.bordo{
+    border-radius: 10px;
+}
+
+.position-x{
+    position: absolute;
+    bottom:5px;
+    right:5px;
+    font-size: 12px;
+
+}
+.padding-x{
+    padding: 200px;
+}
+
+.bg-chat{
+    background-image: url(/img/8c98994518b575bfd8c949e91d20548b.jpg);
+}
+
 .height_50{
     height: 580px;
 }
@@ -40,6 +59,10 @@
 .img_avatar{
     width: 50px;
     height: 50px;
+}
+
+.pointer{
+    cursor: pointer
 }
 
 .trasparency{
