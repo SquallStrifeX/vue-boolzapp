@@ -26,6 +26,9 @@
     font-size: 12px;
 }
 
+.height_50{
+    height: 580px;
+}
 .borderx{
     border: 1px solid black;
 }
