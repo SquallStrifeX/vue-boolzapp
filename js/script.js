@@ -185,7 +185,7 @@ createApp({
           message: this.newMessage,
           status: 'sent',
         })
-        setInterval(() => {
+        setTimeout(() => {
           this.contacts[this.currentPg].messages.push({
             date: new Date().toLocaleString(),
             message: 'Ok.',
