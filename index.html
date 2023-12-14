@@ -67,10 +67,10 @@
                 </div>
                 <div class="col-8 mt-5 g-0" >
                   <div class="d-flex col-12 bg_header justify-content-between align-self-center">
-                    <div class="d-flex m-2">
+                    <div class="d-flex m-2 " >
                       <img class="img_avatar border rounded-circle"
-                          :src="contacts[2].avatar" alt="">
-                      <div class="align-self-start ms-3">{{ currentName }}<span
+                          :src="contacts[currentPg].avatar" alt="">
+                      <div class="align-self-start ms-3">{{ contacts[currentPg].name }}<span
                               class="text_color"><br> Ultimo messaggio inviato</span>
                             </div>
                   </div>
