@@ -1,4 +1,8 @@
+
+
 const { createApp } = Vue;
+
+
 
 createApp({
     data() {
@@ -207,6 +211,9 @@ createApp({
               element.visible = false;
             }
           });
+        },
+        deleteMessage(contactIndex, messageIndex) {
+          this.contacts[contactIndex].messages.splice(messageIndex, 1);
         },
       },
     }).mount('#app');
