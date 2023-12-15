@@ -6,6 +6,7 @@ createApp({
         currentName: '',
         currentPg: 0,
         newMessage: '',
+        search: '',
         contacts: [
           {
             name: 'Michele',
@@ -171,29 +172,41 @@ createApp({
         ]
       }
     },
-    methods: {
-      showChat(index) {
-        this.currentName = this.contacts[index].name;
-      },
-      showPg(index){
-        this.currentPg = index;
-    },
-
-      pushArray(){
-        this.contacts[this.currentPg].messages.push({
-          date: new Date().toLocaleString(),
-          message: this.newMessage,
-          status: 'sent',
-        })
-        setTimeout(() => {
+      methods: {
+        showChat(index) {
+          this.currentName = this.contacts[index].name;
+        },
+    
+        showPg(index) {
+          this.currentPg = index;
+        },
+    
+        pushArray() {
           this.contacts[this.currentPg].messages.push({
             date: new Date().toLocaleString(),
-            message: 'Ok.',
-            status: 'received',
-          })
-        }, 1000);
-        
-
-  },
-}   
-}).mount('#app')
+            message: this.newMessage,
+            status: 'sent',
+          });
+    
+          this.newMessage = '';
+    
+          setTimeout(() => {
+            this.contacts[this.currentPg].messages.push({
+              date: new Date().toLocaleString(),
+              message: 'Ok.',
+              status: 'received',
+            });
+          }, 1000);
+        },
+    
+        searchContact() {
+          this.contacts.forEach((element) => {
+            if (element.name.toLowerCase().includes(this.search.toLowerCase())) {
+              element.visible = true;
+            } else {
+              element.visible = false;
+            }
+          });
+        },
+      },
+    }).mount('#app');

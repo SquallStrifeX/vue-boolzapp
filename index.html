@@ -17,7 +17,7 @@
     <div id="app" class="bg_body">
         <div class="container">
             <div class="row ">
-                <div class="col-4 mt-5 d-flex flex-wrap g-0">
+                <div class="col-4 mt-5  g-0">
                     <div class="d-flex col-12 bg_header justify-content-between align-self-center">
                         <div class="d-flex m-2 ms-3">
                             <img class="img_avatar border rounded-circle" src="img/avatar_2.jpg" alt="">
@@ -44,12 +44,12 @@
                                     <span class="input-group-text" id="basic-addon1"><i
                                             class="fa-solid fa-magnifying-glass"></i></span>
                                     <input type="text" class="form-control" placeholder="Crea o inizia una nuova chat"
-                                        aria-label="" aria-describedby="basic-addon1">
+                                        aria-label="" aria-describedby="basic-addon1" v-model="search" @keyup="searchContact">
                                 </div>
                             </form>
                         </nav>
                     </div>
-                    <div class="col-12 bg-white pointer" v-for="(contact, index) in contacts" :key="index " @click= "showPg(index)">
+                    <div class="col-12 bg-white pointer" v-for="(contact, index) in contacts" :key="index " @click= "showPg(index)" v-show="contact.visible">
                         <div class=" d-flex flex-wrap">
                             <div class="d-flex col-12 justify-content-between align-self-center ms-4 my-2">
                                 <div class="d-flex">
