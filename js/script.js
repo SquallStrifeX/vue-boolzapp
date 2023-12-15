@@ -214,6 +214,13 @@ createApp({
         },
         deleteMessage(contactIndex, messageIndex) {
           this.contacts[contactIndex].messages.splice(messageIndex, 1);
+          
+          // Se l'array dei messaggi è vuoto, aggiungi un nuovo messaggio
+          if (this.contacts[contactIndex].messages.length === 0) {
+            this.contacts[contactIndex].messages.push({
+              date: null,
+            });
+          } 
         },
       },
     }).mount('#app');

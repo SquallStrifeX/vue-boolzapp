@@ -53,11 +53,11 @@
                                 <div class="d-flex">
                                     <img class="img_avatar border rounded-circle"
                                         :src="contacts[index].avatar" alt="">
-                                    <div class="align-self-start ms-3">{{ contact.name }}<span
-                                            class="text_color"><br> {{contacts[index].messages[contacts[index].messages.length - 1].date}}</span></div>
+                                    <div class="align-self-start ms-3 truncate">{{ contact.name }}<span
+                                            class="text_color "><br> {{contacts[index].messages[contacts[index].messages.length - 1].message}}</span></div>
                                 </div>
                                 <div class="d-flex align-self-center justify-content-end">
-                                    <div class="align-self-end me-5">12:00 </div>
+                                    <div class="align-self-end me-5 messagec">{{contacts[index].messages[contacts[index].messages.length - 1].date}}</div>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                <div class="col-12 height_50 bg-chat">
                 <div class="d-flex  " :class="{ 'justify-content-end': message.status === 'sent'} " v-for="(message, messageIndex) in contacts[currentPg].messages" :key="message.date">
                     <div class="dropdown"> 
-                         <span  class=" m-4 padding_left bordo position-relative btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" :class="{ 'bg-success': message.status === 'sent', 'bg-white' : message.status == 'received' } ">{{ message.message }}<span class="position-x">{{message.date}}</span>
+                         <span  class=" m-4 padding_left bordo position-relative btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" :class="{ 'bg-success': message.status === 'sent', 'bg-white' : message.status == 'received' } ">{{ message.message }}<span class="position-x">{{message.date}}</span>
                       </span>
                         <ul class="dropdown-menu">
                           <li><a class="dropdown-item" href="#">Informazioni</a></li>
