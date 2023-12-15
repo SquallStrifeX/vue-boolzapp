@@ -65,6 +65,10 @@
     cursor: pointer
 }
 
+.padding_left{
+    padding: 20px 100px 20px 20px;
+}
+
 .trasparency{
     color: rgba(0, 0, 0, 0.3);
 }

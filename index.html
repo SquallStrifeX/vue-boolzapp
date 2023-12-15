@@ -56,7 +56,7 @@
                                     <img class="img_avatar border rounded-circle"
                                         :src="contacts[index].avatar" alt="">
                                     <div class="align-self-start ms-3">{{ contact.name }}<span
-                                            class="text_color"><br> Ultimo messaggio inviato</span></div>
+                                            class="text_color"><br> {{contacts[index].messages[contacts[index].messages.length - 1].date}}</span></div>
                                 </div>
                                 <div class="d-flex align-self-center justify-content-end">
                                     <div class="align-self-end me-5">12:00 </div>
@@ -71,7 +71,7 @@
                       <img class="img_avatar border rounded-circle"
                           :src="contacts[currentPg].avatar" alt="">
                       <div class="align-self-start ms-3">{{ contacts[currentPg].name }}<span
-                              class="text_color"><br> Ultimo messaggio inviato</span>
+                              class="text_color"><br> {{contacts[currentPg].messages[contacts[currentPg].messages.length - 1].date}}</span>
                             </div>
                   </div>
                     <div class="d-flex align-self-center justify-content-end me-3">
@@ -82,12 +82,12 @@
                 </div>
                <div class="col-12 height_50 bg-chat">
                 <div class="d-flex  " :class="{ 'justify-content-end': message.status === 'sent'} " v-for="message in contacts[currentPg].messages" :key="message.date">
-                  <span class="p-3 m-4 pe-5 bordo position-relative" :class="{ 'bg-success': message.status === 'sent', 'bg-white' : message.status == 'received' } ">{{ message.message }}<span class="position-x">12:00</span>
+                  <span class=" m-4 padding_left bordo position-relative" :class="{ 'bg-success': message.status === 'sent', 'bg-white' : message.status == 'received' } ">{{ message.message }}<span class="position-x">{{message.date}}</span>
                   </span></div>
                   </div>
                   <div class="col-12 bg_header d-flex">
                     <i class="fa-regular fa-face-smile fa-xl p-4"></i>
-                    <input type="text" class="form-control m-2" placeholder="Username" aria-label="Username" v-model="newMessage" aria-describedby="addon-wrapping"  @keyup.enter="pushArray()">
+                    <input type="text" class="form-control m-2" placeholder="Scrivi qualcosa..." aria-label="Username" v-model="newMessage" aria-describedby="addon-wrapping"  @keyup.enter="pushArray()">
                     <i class="fa-solid fa-microphone fa-xl p-4"></i>
                    </div>
                 </div>
@@ -99,7 +99,7 @@
           
         </div>
     </div>
-
+    <script src="luxon.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/script.js"></script>
 </body>
